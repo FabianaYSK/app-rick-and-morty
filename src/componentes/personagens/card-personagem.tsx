@@ -16,20 +16,20 @@ const CardPersonagem: React.FC = () => {
 
   const handleClick = () => {
     setIsFavorito(!isFavorito);
-  }
+  }  
 
-    return (
-      <div className="card-personagem">
-        <img
-          src="https://rickandmortyapi.com/api/character/avatar/1.jpeg"
-          alt="Rick Sanchez"
-        />
-        <div className="card-personagem-body">
-          <span>Rick Sanchez</span>
-          <BotaoFavorito isFavorito={false} onClick={handleClick}/>
-        </div>
+  return (
+    <div className="card-personagem">
+      <img
+        src="https://rickandmortyapi.com/api/character/avatar/1.jpeg"
+        alt="Rick Sanchez"
+      />
+      <div className="card-personagem-body">
+        <span>Rick Sanchez</span>
+        <BotaoFavorito isFavorito={false} onClick={handleClick} />
       </div>
-    );
-  };
+    </div> 
+  );
+};
 
-  export default CardPersonagem;
+export default CardPersonagem;
