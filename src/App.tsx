@@ -5,7 +5,8 @@ import PaginaFavoritos from "./paginas/PaginaFavoritos";
 import PaginaDetalhe from "./paginas/PaginaDetalhe";
 import Cabecalho from "./componentes/layout/cabecalho";
 
-function App() {
+export default function App() {
+  
   return (
     <div className="App">
       <Cabecalho/>
@@ -18,4 +19,3 @@ function App() {
   );
 }
 
-export default App;
