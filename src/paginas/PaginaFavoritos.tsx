@@ -16,7 +16,7 @@ const PaginaFavoritos: React.FC = () => {
         <h3>Personagens Favoritos</h3>
         <button className="danger">Test Button</button>
       </div>
-      <GradePersonagens />
+      <GradePersonagens paginaAtual={0} termoPesquisa={""} />
     </div>
   );
 };

@@ -1,20 +1,28 @@
+import React from "react";
+import { IPaginacaoProps } from "../../redux/actions/types";
 import "./paginacao.css";
 
 /**
  * Componente que contém os botões para paginar
- *
- * Você deve adicionar as propriedades necessárias para que funcione corretamente
- *
- * @returns Elemento JSX
+ * @param { IPaginacaoProps } props - As props do componente Paginação
+ * @returns { JSX.Element } - Retorna um elemento JSX
  */
 
-const Paginacao: React.FC = () => {
+const Paginacao: React.FC<IPaginacaoProps> = ({ paginaAtual, handlePagina }) => {
+  
   return (
     <div className="paginacao">
-      <button disabled={true} className={"primary"}>
+      <button
+        disabled={paginaAtual === 1}
+        className={"primary"}
+        onClick={() => handlePagina(paginaAtual - 1)}
+      >
         Anterior
       </button>
-      <button disabled={false} className={"primary"}>
+      <button
+        className={"primary"}
+        onClick={() => handlePagina(paginaAtual + 1)}
+      >
         Próximo
       </button>
     </div>
