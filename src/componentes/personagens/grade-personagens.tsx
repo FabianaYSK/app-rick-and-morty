@@ -16,8 +16,7 @@ const GradePersonagem: React.FC<IGradePersonagensProps> = ({
   const [personagens, setPersonagens] = useState<IPersonagem[]>([]);
 
   useEffect(() => {
-    const url = `https://rickandmortyapi.com/api/character/?page=${paginaAtual}`;
-    fetch(url)
+    fetch(`https://rickandmortyapi.com/api/character/?page=${paginaAtual}`)
       .then((response) => response.json())
       .then((data) => setPersonagens(data.results));
   }, [paginaAtual]);
@@ -29,6 +28,17 @@ const GradePersonagem: React.FC<IGradePersonagensProps> = ({
     }));
   };
 
+  useEffect(() => {
+    const favoritosLocalStorage = localStorage.getItem('favoritos');
+    if (favoritosLocalStorage) {
+      setFavoritos(JSON.parse(favoritosLocalStorage));
+    }
+  }, []);
+  
+  useEffect(() => {
+    localStorage.setItem('favoritos', JSON.stringify(favoritos));
+  }, [favoritos]);
+  
   const personagensFiltrados = personagens.filter((personagem) =>
     personagem.name.toLowerCase().includes(termoPesquisa.toLowerCase())
   );

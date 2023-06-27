@@ -1,9 +1,9 @@
 import { legacy_createStore, combineReducers, applyMiddleware } from "redux";
 import thunk from "redux-thunk";
-import { personagemReducer } from "./reducers";
+import { favoritosReducer } from "./reducers";
 
 const combine = combineReducers({
-    personagemReducer: personagemReducer
+    favoritosReducer: favoritosReducer
 });
 
 export const store = legacy_createStore(combine, applyMiddleware(thunk))

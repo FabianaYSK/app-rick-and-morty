@@ -63,9 +63,18 @@ export interface IPaginacaoProps {
   handlePagina: (novaPagina: number) => void;
 }
 
-type ActionFetchPersonagens = {
-  type: "FETCH_PERSONAGEM";
-  payload: IPersonagem[];
-};
+export interface ISetFavoritoAction {
+  type: 'SET_FAVORITO';
+  payload: Record<number, boolean>;
+}
 
-export type Action = ActionFetchPersonagens;
+export interface IHandleFavoritoAction {
+  type: 'HANDLE_FAVORITO';
+  payload: number;
+}
+
+export type IActionFavoritos = ISetFavoritoAction | IHandleFavoritoAction;
+
+export interface IInitialState {
+  favoritos: Record<number, boolean>;
+}
