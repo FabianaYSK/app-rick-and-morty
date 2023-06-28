@@ -1,8 +1,32 @@
-// import { Action } from "../actions/types";
-import { IActionFavoritos, IInitialState } from "../actions/types";
+import { IActionFavoritos, IInitialState, IPersonagem } from "../actions/types";
 
 const INITIAL_STATE: IInitialState = {
-  favoritos: {},
+  favoritos: [],
+  personagensFavoritos: [],
+};
+
+export const favoritosReducer = (state = INITIAL_STATE, action: IActionFavoritos) => {
+  switch (action.type) {
+    case 'SET_PERSONAGEM_FAVORITO':
+      return {
+        ...state,
+        personagensFavoritos: action.payload,
+      };
+      case 'ADD_PERSONAGEM_FAVORITO':
+      return {
+        ...state,
+        personagensFavoritos: [...state.personagensFavoritos, action.payload],
+      };
+    case 'REMOVE_PERSONAGEM_FAVORITO':
+      return {
+        ...state,
+        personagensFavoritos: state.personagensFavoritos.filter(
+          (personagem: IPersonagem) => personagem.id !== action.payload
+        ),
+      };
+    default:
+      return state;
+  }
 };
 
 /* export function personagemReducer(state = INITIAL_STATE, action: Action) {
@@ -16,24 +40,3 @@ const INITIAL_STATE: IInitialState = {
     default: return state;
   }
 } */
-
-export const favoritosReducer = (state = INITIAL_STATE, action: IActionFavoritos) => {
-  switch (action.type) {
-    case 'SET_FAVORITO':
-      return {
-        ...state,
-        favoritos: action.payload,
-      };
-    case 'HANDLE_FAVORITO':
-      return {
-        ...state,
-        favoritos: {
-          ...state.favoritos,
-          [action.payload]: !state.favoritos[action.payload],
-        },
-      };
-    default:
-      return state;
-  }
-};
-
