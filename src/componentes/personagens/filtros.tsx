@@ -1,6 +1,5 @@
 import React from "react";
 import { IFiltrosProps } from "../../redux/actions/types";
-import "./filtros.css";
 
 /**
  * Componente para filtrar os personagens
@@ -9,16 +8,17 @@ import "./filtros.css";
  */
 
 const Filtros: React.FC<IFiltrosProps> = ({ termoPesquisa, setTermoPesquisa }) => {
-  
+
   return (
-    <div className="filtros">
-      <label htmlFor="nome">Filtrar por nome:</label>
+    <div className="flex flex-col mb-5">
+      <label htmlFor="nome" className="mb-2 text-lg font-medium">Filtrar por nome:</label>
       <input
         type="text"
         placeholder="Rick, Morty, Beth, Alien, ...etc"
         name="nome"
         onChange={(e) => setTermoPesquisa(e.target.value)}
         value={termoPesquisa}
+        className="flex-grow px-5 py-4 rounded border border-gray-300"
       />
     </div>
   );

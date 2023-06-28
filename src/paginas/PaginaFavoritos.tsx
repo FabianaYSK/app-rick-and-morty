@@ -11,10 +11,10 @@ import GradePersonagens from "../componentes/personagens/grade-personagens";
 
 const PaginaFavoritos: React.FC = () => {
   return (
-    <div className="container">
-      <div className="actions">
-        <h3>Personagens Favoritos</h3>
-        <button className="danger">Test Button</button>
+    <div className="max-w-7xl w-full mx-auto px-8 text-black">
+      <div className="flex justify-between items-center my-6">
+        <h3 className="text-lg font-medium">Personagens Favoritos</h3>
+        <button className="cursor-pointer px-5 py-2 text-sm font-medium border-0 rounded-md bg-red-800 text-white">Test Button</button>
       </div>
       <GradePersonagens paginaAtual={0} termoPesquisa={""} />
     </div>

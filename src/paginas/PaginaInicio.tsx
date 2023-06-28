@@ -21,16 +21,16 @@ const PaginaInicio: React.FC = () => {
   };
 
   return (
-    <div className="container">
-      <div className="actions">
-        <h3>Catálogo de Personagens</h3>
-        <button className="danger" onClick={() => setTermoPesquisa("")}>Limpar filtros</button>
+    <div className="max-w-7xl w-full mx-auto px-8 text-black">
+      <div className="flex justify-between items-center my-6">
+        <h3 className="text-lg font-medium">Catálogo de Personagens</h3>
+        <button className="cursor-pointer px-5 py-2 text-sm font-medium border-0 rounded-md bg-red-800 text-white" onClick={() => setTermoPesquisa("")}>Limpar filtros</button>
       </div>
       <Filtros termoPesquisa={termoPesquisa} setTermoPesquisa={setTermoPesquisa} />
       <Paginacao paginaAtual={paginaAtual} handlePagina={handlePagina} />
       <GradePersonagens paginaAtual={paginaAtual}
         termoPesquisa={termoPesquisa} />
-      <Paginacao paginaAtual={paginaAtual} handlePagina={handlePagina} />    
+      <Paginacao paginaAtual={paginaAtual} handlePagina={handlePagina} />
     </div>
   );
 };
