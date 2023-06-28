@@ -1,6 +1,5 @@
 import React from "react";
 import { IPaginacaoProps } from "../../redux/actions/types";
-import "./paginacao.css";
 
 /**
  * Componente que contém os botões para paginar
@@ -9,18 +8,18 @@ import "./paginacao.css";
  */
 
 const Paginacao: React.FC<IPaginacaoProps> = ({ paginaAtual, handlePagina }) => {
-  
+
   return (
-    <div className="paginacao">
+    <div className="flex flex-row justify-between my-4">
       <button
         disabled={paginaAtual === 1}
-        className={"primary"}
-        onClick={() => handlePagina(paginaAtual - 1)}
+        className={`px-5 py-2 text-sm font-medium border-0 rounded-md ${paginaAtual === 1 ? "disabled" : "bg-blue-800"} text-white`} 
+          onClick={() => handlePagina(paginaAtual - 1)}
       >
         Anterior
       </button>
       <button
-        className={"primary"}
+        className="cursor-pointer px-5 py-2 text-sm font-medium border-0 rounded-md bg-blue-800 text-white"
         onClick={() => handlePagina(paginaAtual + 1)}
       >
         Próximo

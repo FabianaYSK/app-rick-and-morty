@@ -1,4 +1,3 @@
-import "./grade-personagem.css";
 import { IGradePersonagensProps, IPersonagem } from "../../redux/actions/types";
 import { useEffect, useState } from "react";
 import CardPersonagem from "./card-personagem";
@@ -34,27 +33,25 @@ const GradePersonagem: React.FC<IGradePersonagensProps> = ({
       setFavoritos(JSON.parse(favoritosLocalStorage));
     }
   }, []);
-  
+
   useEffect(() => {
     localStorage.setItem('favoritos', JSON.stringify(favoritos));
   }, [favoritos]);
-  
+
   const personagensFiltrados = personagens.filter((personagem) =>
     personagem.name.toLowerCase().includes(termoPesquisa.toLowerCase())
   );
 
   return (
-    <div className="grade-personagens">
-      <div className="card-personagem">
-        {personagensFiltrados.map((personagem) => (
-          <CardPersonagem
-            key={personagem.id}
-            personagem={personagem}
-            favoritos={favoritos}
-            handleFavorito={handleFavorito}
-          />
-        ))}
-      </div>
+    <div className="grid grid-cols-5 gap-5">
+      {personagensFiltrados.map((personagem) => (
+        <CardPersonagem
+          key={personagem.id}
+          personagem={personagem}
+          favoritos={favoritos}
+          handleFavorito={handleFavorito}
+        />
+      ))}
     </div>
   );
 };
