@@ -1,6 +1,8 @@
 import { IGradePersonagensProps, IPersonagem } from "../../redux/actions/types";
 import { useEffect, useState } from "react";
 import CardPersonagem from "./card-personagem";
+import { useDispatch, useSelector } from "react-redux";
+import { RootState } from "../../redux/store";
 
 /**
  * Grade de personagens para a página inicial
@@ -11,7 +13,8 @@ const GradePersonagem: React.FC<IGradePersonagensProps> = ({
   paginaAtual,
   termoPesquisa,
 }) => {
-  const [favoritos, setFavoritos] = useState<Record<number, boolean>>({});
+  const dispatch = useDispatch();
+  const { personagensFavoritos } = useSelector((state: RootState) => state.favoritosReducer);
   const [personagens, setPersonagens] = useState<IPersonagem[]>([]);
 
   useEffect(() => {
@@ -20,23 +23,39 @@ const GradePersonagem: React.FC<IGradePersonagensProps> = ({
       .then((data) => setPersonagens(data.results));
   }, [paginaAtual]);
 
-  const handleFavorito = (id: number) => {
-    setFavoritos((favoritos) => ({
-      ...favoritos,
-      [id]: !favoritos[id],
-    }));
+  const handleFavorito = (personagem: IPersonagem) => {
+    if (isFavorite(personagem.id)) {
+      dispatch({ type: 'REMOVE_PERSONAGEM_FAVORITO', payload: personagem.id });
+    } else {
+      dispatch({ type: 'ADD_PERSONAGEM_FAVORITO', payload: personagem });
+    }
   };
 
-  useEffect(() => {
-    const favoritosLocalStorage = localStorage.getItem('favoritos');
-    if (favoritosLocalStorage) {
-      setFavoritos(JSON.parse(favoritosLocalStorage));
-    }
-  }, []);
+  const isFavorite = (id: number) => {
+    const personagemFavorito = personagensFavoritos.find(
+      (personagem) => personagem.id === id
+    );
+    return personagemFavorito !== undefined;
+  };
+
+  const favoritosObjeto: Record<number, boolean> = {};
+  personagensFavoritos.forEach((personagem) => {
+    favoritosObjeto[personagem.id] = true;
+  });
 
   useEffect(() => {
-    localStorage.setItem('favoritos', JSON.stringify(favoritos));
-  }, [favoritos]);
+    const favoritosLocalStorage = localStorage.getItem('personagensFavoritos');
+    if (favoritosLocalStorage) {
+      dispatch({
+        type: 'SET_PERSONAGEM_FAVORITO',
+        payload: JSON.parse(favoritosLocalStorage),
+      });
+    }
+  }, [dispatch]);
+
+  useEffect(() => {
+    localStorage.setItem('personagensFavoritos', JSON.stringify(personagensFavoritos));
+  }, [personagensFavoritos]); 
 
   const personagensFiltrados = personagens.filter((personagem) =>
     personagem.name.toLowerCase().includes(termoPesquisa.toLowerCase())
@@ -48,8 +67,8 @@ const GradePersonagem: React.FC<IGradePersonagensProps> = ({
         <CardPersonagem
           key={personagem.id}
           personagem={personagem}
-          favoritos={favoritos}
-          handleFavorito={handleFavorito}
+          favoritos={favoritosObjeto} 
+          handleFavorito={() => handleFavorito(personagem)}
         />
       ))}
     </div>

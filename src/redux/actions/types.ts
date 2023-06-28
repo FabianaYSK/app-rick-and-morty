@@ -63,18 +63,24 @@ export interface IPaginacaoProps {
   handlePagina: (novaPagina: number) => void;
 }
 
-export interface ISetFavoritoAction {
-  type: 'SET_FAVORITO';
-  payload: Record<number, boolean>;
+export interface ISetPersonagemFavoritoAction {
+  type: 'SET_PERSONAGEM_FAVORITO';
+  payload: any[];
 }
 
-export interface IHandleFavoritoAction {
-  type: 'HANDLE_FAVORITO';
+export interface IAddPersonagemFavoritoAction {
+  type: 'ADD_PERSONAGEM_FAVORITO';
+  payload: any;
+}
+
+export interface IRemovePersonagemFavoritoAction {
+  type: 'REMOVE_PERSONAGEM_FAVORITO';
   payload: number;
 }
 
-export type IActionFavoritos = ISetFavoritoAction | IHandleFavoritoAction;
+export type IActionFavoritos = ISetPersonagemFavoritoAction | IAddPersonagemFavoritoAction | IRemovePersonagemFavoritoAction;
 
 export interface IInitialState {
   favoritos: Record<number, boolean>;
+  personagensFavoritos: any[];
 }
