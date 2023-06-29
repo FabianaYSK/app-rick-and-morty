@@ -5,7 +5,9 @@ import { useEffect } from "react";
 
 /**
  * Esta é a página de favoritos. Aqui você deve ver todos os personagens marcados como favoritos
- *
+ * O componente utiliza a store do Redux para buscar e atualizar a lista de personagens marcados como favoritos.
+ * O componente utiliza o localStorage para persistir o estado dos favoritos na aplicação.
+ *  
  * Uso:
  * ``` <PaginaFavoritos /> ```
  *

@@ -4,6 +4,7 @@ import { IPersonagemProps } from "../../redux/actions/types";
 
 /**
  * Card para cada personagem dentro da grade de personagem.
+ * O componente recebe as informações do personagem, as marcações de favoritos e uma função para lidar com o clique no botão de favorito.
  * @param { IPersonagemProps } props - As props do componente CardPersonagem
  * @returns { JSX.Element } - Retorna um elemento JSX
  */
