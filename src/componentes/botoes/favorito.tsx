@@ -13,7 +13,7 @@ const BotaoFavorito: React.FC<IBotaoFavorito> = ({ isFavorito, onClick }) => {
 
   return (
     <div className="cursor-pointer" onClick={onClick}>
-      {isFavorito ? <AiFillStar size={25}/> : <AiOutlineStar size={25}/>}
+      {isFavorito ? <AiFillStar size={25}/> : <AiOutlineStar size={25} className="hover:text-yellow-500"/>}
     </div>
   );
 };

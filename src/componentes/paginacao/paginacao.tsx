@@ -13,13 +13,13 @@ const Paginacao: React.FC<IPaginacaoProps> = ({ paginaAtual, handlePagina }) => 
     <div className="flex flex-row justify-between my-4">
       <button
         disabled={paginaAtual === 1}
-        className={`px-5 py-2 text-sm font-medium border-0 rounded-md ${paginaAtual === 1 ? "disabled" : "bg-blue-800"} text-white`} 
-          onClick={() => handlePagina(paginaAtual - 1)}
+        className={`px-5 py-2 text-sm font-medium border-0 rounded-md ${paginaAtual === 1 ? "disabled" : "bg-indigo-600 hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"} text-white shadow-sm`} 
+        onClick={() => handlePagina(paginaAtual - 1)}
       >
         Anterior
       </button>
       <button
-        className="cursor-pointer px-5 py-2 text-sm font-medium border-0 rounded-md bg-blue-800 text-white"
+        className="px-5 py-2 text-sm font-semibold border-0 rounded-md bg-indigo-600 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
         onClick={() => handlePagina(paginaAtual + 1)}
       >
         Próximo
