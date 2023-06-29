@@ -1,4 +1,4 @@
-import axios from "axios";
+/* import axios from "axios";
 
 export const fetchPersonagens = (paginaAtual: number) => {
   return async (dispatch: any) => {
@@ -7,4 +7,4 @@ export const fetchPersonagens = (paginaAtual: number) => {
     );
     dispatch({ type: 'FETCH_PERSONAGEM', payload: response.data.results });
   };
-};  
+};  */

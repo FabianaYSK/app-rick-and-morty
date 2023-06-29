@@ -5,7 +5,8 @@ import { useState } from "react";
 
 /**
  * Esta é a página principal. Aqui você deve ver o painel de filtro junto com a grade de personagens.
- *
+ * O componente filtra os personagems por termos de pesquisa, mais especificamente o nome dos personagens e permite navegar pelas páginas de personagens.
+ * 
  * Uso:
  * ``` <PaginaInicio /> ```
  *

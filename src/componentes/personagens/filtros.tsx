@@ -3,6 +3,7 @@ import { IFiltrosProps } from "../../redux/actions/types";
 
 /**
  * Componente para filtrar os personagens
+ * O componente recebe o termo de pesquisa e uma função para atualizá-lo.
  * @param { IFiltrosProps } props - As props do componente Filtros
  * @returns { JSX.Element } - Retorna um elemento JSX
  */

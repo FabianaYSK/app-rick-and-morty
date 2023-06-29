@@ -6,6 +6,9 @@ import { RootState } from "../../redux/store";
 
 /**
  * Grade de personagens para a página inicial
+ * O componente recebe a página atual e o termo de pesquisa.
+ * O componente interagem com a store do Redux para buscar e atualizar a lista de personagens marcados como favoritos.
+ * O componente utiliza o localStorage para persistir o estado dos favoritos na aplicação.
  * @returns { JSX.Element } - Retorna um elemento JSX
  */
 

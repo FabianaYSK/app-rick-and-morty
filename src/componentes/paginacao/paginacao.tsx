@@ -3,6 +3,7 @@ import { IPaginacaoProps } from "../../redux/actions/types";
 
 /**
  * Componente que contém os botões para paginar
+ * O componente recebe a página atual e uma função para tratar a mudança de páginas.
  * @param { IPaginacaoProps } props - As props do componente Paginação
  * @returns { JSX.Element } - Retorna um elemento JSX
  */

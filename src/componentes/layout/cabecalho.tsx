@@ -2,7 +2,8 @@ import { Link } from "react-router-dom";
 
 /**
  * Cabeçalho que contém os links para navegar entre as páginas
- *
+ * O componente utiliza o Link do React Router para navegar entre as páginas Início, Favoritos e Detalhes
+ * 
  * Uso: `<Cabecalho />`
  *
  * @returns {JSX.Element}

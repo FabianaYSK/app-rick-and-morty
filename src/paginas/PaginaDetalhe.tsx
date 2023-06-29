@@ -5,9 +5,11 @@
 import { Link } from "react-router-dom";
 
 /**
- * Esta é a página de detalhes. Aqui você pode mostrar a visão do personagem selecionado junto com a lista de episódios em que ele aparece
+ * Esta é a página de detalhes. Aqui você pode mostrar a visão do personagem selecionado junto com a lista de episódios em que ele aparece.
  *
  * TRABALHAR NESTE ARQUIVO É OPCIONAL E NÃO É NECESSÁRIO PARA APROVAÇÃO
+ * 
+ * Como essa página é opcional, o componente mostra uma mensagem informando que a página ainda está em desenvolvimento e que em breve estará disponível.
  *
  * Uso:
  * ``` <PaginaDetalhe /> ```

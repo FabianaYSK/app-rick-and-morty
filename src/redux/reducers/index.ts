@@ -1,10 +1,16 @@
 import { IActionFavoritos, IInitialState, IPersonagem } from "../actions/types";
 
+/** 
+ * Definir o estado inicial do reducer
+ */
 const INITIAL_STATE: IInitialState = {
   favoritos: [],
   personagensFavoritos: [],
 };
 
+/** 
+ * Definir o reducer de favoritos
+ */
 export const favoritosReducer = (state = INITIAL_STATE, action: IActionFavoritos) => {
   switch (action.type) {
     case 'SET_PERSONAGEM_FAVORITO':

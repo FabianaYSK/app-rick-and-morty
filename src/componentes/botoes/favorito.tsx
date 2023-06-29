@@ -5,6 +5,7 @@ import { AiOutlineStar, AiFillStar } from 'react-icons/ai'
 
 /**
  * Botão que indica se um elemento é favorito ou não, e dá a possibilidade de marcá-lo/desmarcá-lo
+ * O componente recebe um booleano para indicar se é favorito ou não e uma função para lidar com o clique do botão.
  * @param { IBotaoFavorito } props - As props do componente BotaoFavorito
  * @returns { JSX.Element } - Retorna um elemento JSX
  */
