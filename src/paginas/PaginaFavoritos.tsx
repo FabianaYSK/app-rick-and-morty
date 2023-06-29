@@ -20,6 +20,10 @@ const PaginaFavoritos: React.FC = () => {
     dispatch({ type: 'REMOVE_PERSONAGEM_FAVORITO', payload: id });
   };
 
+  const handleApagarFavoritos = () => {
+    dispatch({ type: 'SET_PERSONAGEM_FAVORITO', payload: [] });
+  }
+
   useEffect(() => {
     const favoritosLocalStorage = localStorage.getItem('personagensFavoritos');
     if (favoritosLocalStorage) {
@@ -32,13 +36,19 @@ const PaginaFavoritos: React.FC = () => {
 
   useEffect(() => {
     localStorage.setItem('personagensFavoritos', JSON.stringify(personagensFavoritos));
-  }, [personagensFavoritos]); 
+  }, [personagensFavoritos]);
 
   return (
     <div className="max-w-7xl w-full mx-auto px-8 text-black">
       <div className="flex justify-between items-center my-6">
-        <h3 className="text-lg font-medium">Personagens Favoritos</h3>
-        <button className="cursor-pointer px-5 py-2 text-sm font-medium border-0 rounded-md bg-red-800 text-white">Apagar favoritos</button> 
+        <h3 className="text-2xl font-medium text-indigo-900">Personagens Favoritos</h3>
+        <button
+          className={`cursor-pointer px-5 py-2 text-sm font-medium border-0 rounded-md ${personagensFavoritos.length === 0 ? "disabled" : "bg-rose-800 hover:bg-rose-700"} text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-rose-700`}
+          disabled={personagensFavoritos.length === 0}
+          onClick={handleApagarFavoritos}
+        >
+          Apagar favoritos
+        </button>
       </div>
       <div className="grid grid-cols-5 gap-5">
         {personagensFavoritos.map((personagem) => (
